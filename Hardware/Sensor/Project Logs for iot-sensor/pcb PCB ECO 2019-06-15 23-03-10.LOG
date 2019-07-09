@@ -1,0 +1,7 @@
+Added Component: Designator=U5(SOT23-5)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=V_switch Pin=U5-1
+Added Pin To Net: NetName=GND Pin=U5-2
+Added Pin To Net: NetName=VCC Pin=U5-4
+Added Pin To Net: NetName=VCC Pin=U5-5
+Added Member To Class: ClassName=schematic Member=Component U5 TPS22860

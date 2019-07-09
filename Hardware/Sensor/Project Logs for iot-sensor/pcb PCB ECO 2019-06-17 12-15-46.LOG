@@ -1,0 +1,38 @@
+Change Component Footprint: Designator=L3 Old Footprint=0603 (IND) New Footprint=0402 (IND)
+Change Component Footprint: Designator=L7 Old Footprint=0603 (IND) New Footprint=0402 (IND)
+Change Component Footprint: Designator=L8 Old Footprint=0603 (IND) New Footprint=0402 (IND)
+Change Component Footprint: Designator=L6 Old Footprint=0603 (IND) New Footprint=0805 (IND)
+Change Component Footprint: Designator=L4 Old Footprint=0603 (IND) New Footprint=LQW15AN6N8G00D
+Change Component Footprint: Designator=L5 Old Footprint=0603 (IND) New Footprint=LQW15AN6N8G00D
+Change Component Footprint: Designator=L9 Old Footprint=0603 (IND) New Footprint=SRN2009T
+Change Component Comment : Designator=L6 Old Comment=Inductor New Comment=MLZ2012N6R8LT000
+Change Component Comment : Designator=L1 Old Comment=Inductor Iron New Comment=BLM18HE152SN1D
+Change component parameters: Designator = "L1"; Footprint = "0603 (IND)"; UniqueID = "\SLQEDNGA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.9 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.9"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "24-Mar-1999"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1500 Ohm"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=schematic Member=Component C4 Cap
+Added Member To Class: ClassName=schematic Member=Component C6 Cap
+Added Member To Class: ClassName=schematic Member=Component C8 Cap
+Added Member To Class: ClassName=schematic Member=Component C10 Cap
+Added Member To Class: ClassName=schematic Member=Component C12 Cap
+Added Member To Class: ClassName=schematic Member=Component C16 Cap
+Added Member To Class: ClassName=schematic Member=Component C17 Cap
+Added Member To Class: ClassName=schematic Member=Component C20 DNM
+Added Member To Class: ClassName=schematic Member=Component C21 Cap
+Added Member To Class: ClassName=schematic Member=Component C26 Cap
+Added Member To Class: ClassName=schematic Member=Component C27 Cap
+Added Member To Class: ClassName=schematic Member=Component C29 Cap
+Added Member To Class: ClassName=schematic Member=Component L6 MLZ2012N6R8LT000
+Added Member To Class: ClassName=schematic Member=Component R4 Res1
+Added Member To Class: ClassName=schematic Member=Component R5 DNM
+Added Member To Class: ClassName=schematic Member=Component R6 Res1
+Added Member To Class: ClassName=schematic Member=Component R9 200K - 10K
+Added Member To Class: ClassName=schematic Member=Component R11 Res1
+Added Member To Class: ClassName=schematic Member=Component U3 TPS22860
+Added Room: Name=schematic

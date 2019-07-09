@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=C21 Old Footprint=0402 (CAP) New Footprint=1210 (CAP)
+Change Component Comment : Designator=C21 Old Comment=Cap New Comment=GRM32EC70J107ME15L
+Added Room: Name=schematic

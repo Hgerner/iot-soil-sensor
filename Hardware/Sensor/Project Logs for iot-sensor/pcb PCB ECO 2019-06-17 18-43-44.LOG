@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND Pin=U6-2
+Removed Pin From Net: NetName=V_switch Pin=U6-5
+Removed Member From Class: ClassName=schematic Member=U6
+Change Component Comment : Designator=U5 Old Comment=74LVC2G14 New Comment=74LVC2G14, Inverting Schmitt Trigger
+Added Pin To Net: NetName=GND Pin=U5-2
+Added Pin To Net: NetName=V_switch Pin=U5-5
+Added Room: Name=schematic

@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=NetAnt1_1 Pin=Ant1-1
+Added Pin To Net: NetName=NetAnt1_1 Pin=C1-2
+Added Pin To Net: NetName=NetAnt1_1 Pin=L2-1
+Added Net: Name=NetAnt1_1
+Added Room: Name=schematic

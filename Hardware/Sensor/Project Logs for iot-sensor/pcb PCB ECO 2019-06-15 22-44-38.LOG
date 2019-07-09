@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=VCC Pin=R1-2
+Change Component Designator: OldDesignator=* NewDesignator=Ant1
+Added Pin To Net: NetName=VDDS Pin=R1-2
+Added Pin To Net: NetName=V_switch Pin=R3-2
+Added Pin To Net: NetName=V_switch Pin=R4-2
+Change Net Name : Old Net Name=RES_N New Net Name=RESET_N
+Added Pin To Net: NetName=JTAG_TCK Pin=CC1310-14
+Added Net: Name=JTAG_TCK
+Added Pin To Net: NetName=JTAG_TMS Pin=CC1310-13
+Added Net: Name=JTAG_TMS
+Added Pin To Net: NetName=NetAnt1_0 Pin=C1-2
+Added Pin To Net: NetName=NetAnt1_0 Pin=L2-1
+Added Net: Name=NetAnt1_0
+Added Pin To Net: NetName=NetBT1_1 Pin=Q1-2
+Added Net: Name=NetBT1_1
+Added Room: Name=schematic

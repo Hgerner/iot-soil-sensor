@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=GND Pin=BT1-2
+Removed Pin From Net: NetName=GND Pin=BT1-2
+Removed Member From Class: ClassName=schematic Member=BT1
+Added Component: Designator=BT?(S8421-45R)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=BT?-2
+Added Pin To Net: NetName=NetBT?_1 Pin=BT?-1
+Added Pin To Net: NetName=NetBT?_1 Pin=D1-1
+Added Net: Name=NetBT?_1
+Added Member To Class: ClassName=schematic Member=Component BT? Battery Coin Cell
+Added Room: Name=schematic

@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=SOIL_HUMIDITY Pin=CC1-22
+Removed Pin From Net: NetName=Vbat Pin=CC1-24
+Added Pin To Net: NetName=Vbat Pin=CC1-22
+Added Pin To Net: NetName=SOIL_HUMIDITY Pin=CC1-23
+Added Pin To Net: NetName=NetCC1_24 Pin=CC1-24
+Added Pin To Net: NetName=NetCC1_24 Pin=R9-2
+Added Pin To Net: NetName=NetCC1_24 Pin=R11-2
+Added Net: Name=NetCC1_24

@@ -1,0 +1,114 @@
+Removed Pin From Net: NetName=VCC Pin=U?-2
+Removed Pin From Net: NetName=Vbat Pin=U?-3
+Removed Pin From Net: NetName=EN_BYP Pin=U?-4
+Change Component Designator: OldDesignator=C? NewDesignator=C1
+Change Component Designator: OldDesignator=C? NewDesignator=C2
+Change Component Designator: OldDesignator=C? NewDesignator=C6
+Change Component Designator: OldDesignator=C? NewDesignator=C7
+Change Component Designator: OldDesignator=C? NewDesignator=C8
+Change Component Designator: OldDesignator=C? NewDesignator=C9
+Change Component Designator: OldDesignator=C? NewDesignator=C10
+Change Component Designator: OldDesignator=C? NewDesignator=C11
+Change Component Designator: OldDesignator=C? NewDesignator=C12
+Change Component Designator: OldDesignator=C? NewDesignator=C13
+Change Component Designator: OldDesignator=C? NewDesignator=C14
+Change Component Designator: OldDesignator=C? NewDesignator=C15
+Change Component Designator: OldDesignator=C? NewDesignator=C16
+Change Component Designator: OldDesignator=C? NewDesignator=C17
+Change Component Designator: OldDesignator=C? NewDesignator=C18
+Change Component Designator: OldDesignator=C? NewDesignator=C19
+Change Component Designator: OldDesignator=C? NewDesignator=C20
+Change Component Designator: OldDesignator=C? NewDesignator=C21
+Change Component Designator: OldDesignator=C? NewDesignator=C22
+Change Component Designator: OldDesignator=C? NewDesignator=C23
+Change Component Designator: OldDesignator=L? NewDesignator=L1
+Change Component Designator: OldDesignator=L? NewDesignator=L2
+Change Component Designator: OldDesignator=L? NewDesignator=L3
+Change Component Designator: OldDesignator=L? NewDesignator=L4
+Change Component Designator: OldDesignator=L? NewDesignator=L5
+Change Component Designator: OldDesignator=L? NewDesignator=L6
+Change Component Designator: OldDesignator=L? NewDesignator=L7
+Change Component Designator: OldDesignator=L? NewDesignator=L8
+Change Component Designator: OldDesignator=L? NewDesignator=L9
+Change Component Designator: OldDesignator=R? NewDesignator=R1
+Change Component Designator: OldDesignator=R? NewDesignator=R2
+Change Component Designator: OldDesignator=R? NewDesignator=R5
+Change Component Designator: OldDesignator=R? NewDesignator=R6
+Change Component Designator: OldDesignator=R? NewDesignator=R7
+Change Component Designator: OldDesignator=U? NewDesignator=U4
+Change Component Designator: OldDesignator=U? NewDesignator=U5
+Change Component Designator: OldDesignator=Y? NewDesignator=Y1
+Change Component Designator: OldDesignator=Y? NewDesignator=Y2
+Change Net Name : Old Net Name=NetC?_1 New Net Name=NetC13_1
+Change Net Name : Old Net Name=NetC?_2 New Net Name=NetC20_2
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=R2-1
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=NetC2_2 Pin=CC1310-4
+Added Pin To Net: NetName=NetC2_2 Pin=L3-2
+Added Net: Name=NetC2_2
+Added Pin To Net: NetName=NetC10_1 Pin=C10-1
+Added Pin To Net: NetName=NetC10_1 Pin=CC1310-2
+Added Pin To Net: NetName=NetC10_1 Pin=L3-1
+Added Pin To Net: NetName=NetC10_1 Pin=L6-1
+Added Net: Name=NetC10_1
+Added Pin To Net: NetName=NetC10_2 Pin=C10-2
+Added Pin To Net: NetName=NetC10_2 Pin=C11-1
+Added Pin To Net: NetName=NetC10_2 Pin=L4-2
+Added Pin To Net: NetName=NetC10_2 Pin=L8-1
+Added Net: Name=NetC10_2
+Added Pin To Net: NetName=NetC12_1 Pin=C12-1
+Added Pin To Net: NetName=NetC12_1 Pin=L4-1
+Added Pin To Net: NetName=NetC12_1 Pin=L5-2
+Added Net: Name=NetC12_1
+Added Pin To Net: NetName=NetC17_1 Pin=C17-1
+Added Pin To Net: NetName=NetC17_1 Pin=CC1310-1
+Added Pin To Net: NetName=NetC17_1 Pin=L6-2
+Added Pin To Net: NetName=NetC17_1 Pin=L8-2
+Added Net: Name=NetC17_1
+Added Pin To Net: NetName=NetC18_2 Pin=C18-2
+Added Pin To Net: NetName=NetC18_2 Pin=CC1310-12
+Added Net: Name=NetC18_2
+Added Pin To Net: NetName=NetC19_2 Pin=C19-2
+Added Pin To Net: NetName=NetC19_2 Pin=CC1310-6
+Added Pin To Net: NetName=NetC19_2 Pin=Y2-1
+Added Net: Name=NetC19_2
+Added Pin To Net: NetName=NetL9_2 Pin=L9-2
+Added Net: Name=NetL9_2
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Net: Name=NetR5_1
+Added Member To Class: ClassName=schematic Member=Component C1 Cap
+Added Member To Class: ClassName=schematic Member=Component C2 Cap
+Added Member To Class: ClassName=schematic Member=Component C6 Cap
+Added Member To Class: ClassName=schematic Member=Component C7 Cap
+Added Member To Class: ClassName=schematic Member=Component C8 Cap
+Added Member To Class: ClassName=schematic Member=Component C10 Cap
+Added Member To Class: ClassName=schematic Member=Component C11 Cap
+Added Member To Class: ClassName=schematic Member=Component C12 Cap
+Added Member To Class: ClassName=schematic Member=Component C13 Cap
+Added Member To Class: ClassName=schematic Member=Component C14 Cap
+Added Member To Class: ClassName=schematic Member=Component C15 Cap
+Added Member To Class: ClassName=schematic Member=Component C16 Cap
+Added Member To Class: ClassName=schematic Member=Component C17 Cap
+Added Member To Class: ClassName=schematic Member=Component C18 Cap
+Added Member To Class: ClassName=schematic Member=Component C19 Cap
+Added Member To Class: ClassName=schematic Member=Component C20 Cap
+Added Member To Class: ClassName=schematic Member=Component C21 Cap
+Added Member To Class: ClassName=schematic Member=Component C22 Cap
+Added Member To Class: ClassName=schematic Member=Component C23 Cap
+Added Member To Class: ClassName=schematic Member=Component L1 Inductor Iron
+Added Member To Class: ClassName=schematic Member=Component L2 Inductor
+Added Member To Class: ClassName=schematic Member=Component L3 Inductor
+Added Member To Class: ClassName=schematic Member=Component L5 Inductor
+Added Member To Class: ClassName=schematic Member=Component L6 Inductor
+Added Member To Class: ClassName=schematic Member=Component L7 Inductor
+Added Member To Class: ClassName=schematic Member=Component L8 Inductor
+Added Member To Class: ClassName=schematic Member=Component L9 Inductor
+Added Member To Class: ClassName=schematic Member=Component R1 Res1
+Added Member To Class: ClassName=schematic Member=Component R2 DNM
+Added Member To Class: ClassName=schematic Member=Component R5 DNM
+Added Member To Class: ClassName=schematic Member=Component R6 Res1
+Added Member To Class: ClassName=schematic Member=Component U4 74LVC2G14
+Added Member To Class: ClassName=schematic Member=Component Y2 32.768 kHz
+Added Room: Name=schematic

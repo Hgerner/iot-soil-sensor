@@ -1,0 +1,4 @@
+Added Component: Designator=*(Antenna_868_Helix)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=schematic Member=Component * Antenna 868 Helix
+Added Room: Name=schematic

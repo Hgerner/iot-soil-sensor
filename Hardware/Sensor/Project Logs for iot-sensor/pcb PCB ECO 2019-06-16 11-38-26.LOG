@@ -1,0 +1,7 @@
+Added Component: Designator=R11(Photoresistor)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=V_switch Pin=R11-1
+Added Pin To Net: NetName=NetCC1310_24 Pin=R11-2
+Change Net Name : Old Net Name=Vbat New Net Name=NetC22_2
+Added Member To Class: ClassName=schematic Member=Component R11 Photo Resistor
+Added Room: Name=schematic

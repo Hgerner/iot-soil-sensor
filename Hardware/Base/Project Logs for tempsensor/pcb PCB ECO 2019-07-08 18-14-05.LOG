@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=Valve1 Pin=R2-2
+Removed Pin From Net: NetName=Valve2 Pin=R5-2
+Removed Pin From Net: NetName=Valve4 Pin=R12-2
+Removed Pin From Net: NetName=Valve5 Pin=R16-2
+Added Pin To Net: NetName=Valve5 Pin=R2-2
+Added Pin To Net: NetName=Valve4 Pin=R5-2
+Added Pin To Net: NetName=Valve2 Pin=R12-2
+Added Pin To Net: NetName=Valve1 Pin=R16-2
+Added Room: Name=schematic

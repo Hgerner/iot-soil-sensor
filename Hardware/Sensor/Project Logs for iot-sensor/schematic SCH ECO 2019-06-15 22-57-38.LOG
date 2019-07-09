@@ -1,0 +1,4 @@
+Remove Pin=J1-2 From Net=JTAG_TMS
+Remove Pin=J1-4 From Net=JTAG_TCK
+Remove Pin=J1-10 From Net=RESET_N
+Remove Pin=U5-6 From Net=PWR_ON

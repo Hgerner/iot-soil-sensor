@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=BT? NewDesignator=BT1
+Change Net Name : Old Net Name=NetBT?_1 New Net Name=NetBT1_1
+Added Room: Name=schematic

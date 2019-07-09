@@ -1,0 +1,10 @@
+Added Component: Designator=U1(TPS61291)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetL9_2 Pin=U1-1
+Added Pin To Net: NetName=VCC Pin=U1-2
+Added Pin To Net: NetName=Vbat Pin=U1-3
+Added Pin To Net: NetName=EN_BYP Pin=U1-4
+Added Pin To Net: NetName=NetR5_2 Pin=U1-5
+Added Pin To Net: NetName=GND Pin=U1-6
+Added Pin To Net: NetName=GND Pin=U1-7
+Added Member To Class: ClassName=schematic Member=Component U1 TPS61291

@@ -1,0 +1,6 @@
+Added Component: Designator=BT1(SMTU2032-LF)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetBT1_1 Pin=BT1-1
+Added Pin To Net: NetName=GND Pin=BT1-2
+Added Pin To Net: NetName=GND Pin=BT1-2
+Added Member To Class: ClassName=schematic Member=Component BT1 Battery Coin Cell

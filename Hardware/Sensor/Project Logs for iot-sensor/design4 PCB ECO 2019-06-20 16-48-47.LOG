@@ -1,0 +1,31 @@
+Removed Pin From Net: NetName=GND Pin=U6-2
+Removed Pin From Net: NetName=V_switch Pin=U6-5
+Removed Member From Class: ClassName=schematic Member=U6
+Change Component Comment : Designator=U5 Old Comment=74LVC2G14 New Comment=74LVC2G14, Inverting Schmitt Trigger
+Added Pin To Net: NetName=GND Pin=U5-2
+Added Pin To Net: NetName=V_switch Pin=U5-5
+Added Member To Class: ClassName=schematic Member=Component C2 Cap
+Added Member To Class: ClassName=schematic Member=Component C3 Cap
+Added Member To Class: ClassName=schematic Member=Component C4 Cap
+Added Member To Class: ClassName=schematic Member=Component C6 Cap
+Added Member To Class: ClassName=schematic Member=Component C7 Cap
+Added Member To Class: ClassName=schematic Member=Component C8 Cap
+Added Member To Class: ClassName=schematic Member=Component C9 Cap
+Added Member To Class: ClassName=schematic Member=Component C10 DNM
+Added Member To Class: ClassName=schematic Member=Component C15 GRM32EC70J107ME15L
+Added Member To Class: ClassName=schematic Member=Component C16 Cap
+Added Member To Class: ClassName=schematic Member=Component C17 Cap
+Added Member To Class: ClassName=schematic Member=Component C18 Cap
+Added Member To Class: ClassName=schematic Member=Component C20 Cap
+Added Member To Class: ClassName=schematic Member=Component C21 Cap
+Added Member To Class: ClassName=schematic Member=Component C22 Chumidity
+Added Member To Class: ClassName=schematic Member=Component C23 Cap
+Added Member To Class: ClassName=schematic Member=Component L1 Inductor
+Added Member To Class: ClassName=schematic Member=Component L2 BLM18HE152SN1D
+Added Member To Class: ClassName=schematic Member=Component L3 MLZ2012N6R8LT000
+Added Member To Class: ClassName=schematic Member=Component L4 Inductor
+Added Member To Class: ClassName=schematic Member=Component R3 Res1
+Added Member To Class: ClassName=schematic Member=Component R4 Res1
+Added Member To Class: ClassName=schematic Member=Component R6 Res1
+Added Member To Class: ClassName=schematic Member=Component R7 DNM
+Added Member To Class: ClassName=schematic Member=Component U4 TPS22860

@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=NetC25_2 Pin=Y1-1
+Removed Pin From Net: NetName=NetC26_2 Pin=Y1-2
+Removed Member From Class: ClassName=schematic Member=Y1
+Change Component Comment : Designator=D? Old Comment=D Schottky New Comment=RB751S40T5G
+Added Component: Designator=Y?(TSX-3225 24.0000MF20G-AC3)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC25_2 Pin=Y?-1
+Added Pin To Net: NetName=GND Pin=Y?-2
+Added Pin To Net: NetName=NetC26_2 Pin=Y?-3
+Added Pin To Net: NetName=GND Pin=Y?-4
+Added Member To Class: ClassName=schematic Member=Component Y? TSX-3225 24.0000MF20G-AC3
+Added Room: Name=schematic

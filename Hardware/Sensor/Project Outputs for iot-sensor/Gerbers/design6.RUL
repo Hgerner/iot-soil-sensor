@@ -1,0 +1,6 @@
+DRC Rules Export File for PCB: C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc
+RuleKind=Width|RuleName=Width_50ohm|Scope=Board|Minimum=20.00
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=5.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=5.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=5.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0

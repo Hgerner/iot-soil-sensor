@@ -1,0 +1,546 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2019-07-18</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">22:08:37</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc" class="file"><acronym title="C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc">C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">1</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">65</td></tr>
+</table>
+</td>
+</table><a name="IDWUAUL24I1V5NDZLMC3IZDBU2ZO0FF3UHUE4A1THE1034NXOPJC"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPAG55UCMX0JOB5PEFTVFDXGLMIU3LFXBEDBBBICGL4I3SVUVV1FG">1 Net Tie failed verification</a></td>
+<td class="column2">1</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">1</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNAECNSA2SRHHDIEUNEC402WG4MRVBM4GBYTVSRHNLPRCMWWLJRCN">Clearance Constraint (Gap=0.127mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID12RWDZXL4FJ4P23GCHU4KZTB5O5YMKVNAAYUGYGRVHJSYH34FAB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0VCS1K3UXSXURKTQIYNJUNSOF13KOEZIPU2E1P5SR54YKE4YBLB">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0A3H2VJPYNLKELCDKWHXQ13DPBQDUF0IPGFX2RJOPPXPCWUWYLJN">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUV3RLUUV1J4DGBCHMYOBVUTFQOZD24V0TIJWCFB0YVWHJWGQD5MI">Width Constraint (Min=0.127mm) (Max=0.254mm) (Preferred=0.152mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDC00M1CGBEZTLBJKZTUJ0M0ZNEEREDZOCZWDF5YBDB2RN0E52BAC">Width Constraint (Min=0.508mm) (Max=1.27mm) (Preferred=0.508mm) (InNet('NetAnt1_1') OR InNet('NetFL1_1') OR InNet('NetC5_1')         OR InComponent('Ant1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPSQGWLHCOH0SEKUF2E03BGB12LYEXBBR5BNNQTJAROF23KVLXSVO">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDCNUWHQ1QOFVMYHU1BZPWE3ZYJIHW5KPVHZVIQDHWGU4LHAMW3GO">Hole Size Constraint (Min=0.3mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTABPCETBWVLEB2HUFJ3IJWNWCFGELM0AV44QHQH4PGCH2LUR3SOH">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRK2DVJVKIYZYF2BLMBQYOUNGQEVRDIGJ2UTI4VBN0PB2X3PGKGT">Minimum Solder Mask Sliver (Gap=0.127mm) (All),(All)</a></td>
+<td class="column2">47</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUK3JBC2VCVGPODLBI4B0LDTFWHLCIK0LWVYPI5C52YUPTVJGOWNC">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">18</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGL4EIE01PSFFERNM0VH25MANCICOANEH0DCWQNBDP1SGNG4ZTTCP">Silk to Silk (Clearance=0.152mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHMFNF3Q2GUEVBXGQ1JTGCQMTBG0YAOMKSFGE5EDZIR1RUC20MGF">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPJNRX5G4R54NLJ4B5WWSYQ1EEFL3M3PIHJNOYMGY2DVR4Y3CJK5N">Height Constraint (Min=0mm) (Max=100mm) (Prefered=12.7mm) (InComponent('U3'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMQLXENHEDMZHOJSTCW0LAQKFT5NQJ3YSKSLKEFQZAYJ1QEMYZXB">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">65</td>
+</tr>
+</table><br><a name="IDM02ZAEIQCBUCNONC3LDGPM4VNMZ53WOEEQI124M0YAARUGLX0WDM"><h2>Warnings</h2></a><a name="IDPAG55UCMX0JOB5PEFTVFDXGLMIU3LFXBEDBBBICGL4I3SVUVV1FG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">1 Net Tie failed verification</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=64.961mil|Location2.X=801.181mil|Location1.Y=276.898mil|Location2.Y=2389.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=64.961mil|Location2.X=801.181mil|Location1.Y=276.898mil|Location2.Y=2389.764mil|Absolute=True">SMT Small Component C22-Chumidity (11mm,17mm) on Top Layer</acronym></a>, SMT Small Component C22-Chumidity (11mm,17mm) on Top Layer, has isolated copper</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDRK2DVJVKIYZYF2BLMBQYOUNGQEVRDIGJ2UTI4VBN0PB2X3PGKGT"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.127mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=208.257mil|Location2.X=214.507mil|Location1.Y=2755.576mil|Location2.Y=2761.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=208.257mil|Location2.X=214.507mil|Location1.Y=2755.576mil|Location2.Y=2761.826mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.052mm &lt; 0.127mm) Between Pad C7-1(5.842mm,69.842mm) on Top Layer And Pad L3-2(4.521mm,70.648mm) on Top Layer [Top Solder] Mask Sliver [0.052mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2911.875mil|Location2.Y=2918.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2911.875mil|Location2.Y=2918.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.127mm) Between Pad P2-1(1.27mm,74.676mm) on Multi-Layer And Pad P2-2(1.27mm,73.406mm) on Multi-Layer [Top Solder] Mask Sliver [0.016mm] / [Bottom Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2861.875mil|Location2.Y=2868.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2861.875mil|Location2.Y=2868.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.127mm) Between Pad P2-2(1.27mm,73.406mm) on Multi-Layer And Pad P2-3(1.27mm,72.136mm) on Multi-Layer [Top Solder] Mask Sliver [0.016mm] / [Bottom Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2811.875mil|Location2.Y=2818.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2811.875mil|Location2.Y=2818.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.127mm) Between Pad P2-3(1.27mm,72.136mm) on Multi-Layer And Pad P2-4(1.27mm,70.866mm) on Multi-Layer [Top Solder] Mask Sliver [0.016mm] / [Bottom Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2761.875mil|Location2.Y=2768.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2761.875mil|Location2.Y=2768.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.127mm) Between Pad P2-4(1.27mm,70.866mm) on Multi-Layer And Pad P2-5(1.27mm,69.596mm) on Multi-Layer [Top Solder] Mask Sliver [0.016mm] / [Bottom Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2611.875mil|Location2.Y=2618.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=46.875mil|Location2.X=53.125mil|Location1.Y=2611.875mil|Location2.Y=2618.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.127mm) Between Pad P3-1(1.27mm,67.056mm) on Multi-Layer And Pad P3-2(1.27mm,65.786mm) on Multi-Layer [Top Solder] Mask Sliver [0.016mm] / [Bottom Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=449.875mil|Location2.X=456.125mil|Location1.Y=2499.064mil|Location2.Y=2505.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=449.875mil|Location2.X=456.125mil|Location1.Y=2499.064mil|Location2.Y=2505.314mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.126mm &lt; 0.127mm) Between Pad R3-1(11.946mm,63.983mm) on Top Layer And Pad R4-2(11.066mm,63.983mm) on Top Layer [Top Solder] Mask Sliver [0.126mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2884.946mil|Location2.Y=2891.196mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2884.946mil|Location2.Y=2891.196mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-1(14.821mm,73.434mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=526.166mil|Location2.X=532.416mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=526.166mil|Location2.X=532.416mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-10(13.696mm,77.559mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=506.481mil|Location2.X=512.731mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=506.481mil|Location2.X=512.731mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-11(13.196mm,77.559mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=486.796mil|Location2.X=493.046mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=486.796mil|Location2.X=493.046mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-12(12.696mm,77.559mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=467.111mil|Location2.X=473.361mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=467.111mil|Location2.X=473.361mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-13(12.196mm,77.559mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=447.426mil|Location2.X=453.676mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=447.426mil|Location2.X=453.676mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-14(11.696mm,77.559mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=427.741mil|Location2.X=433.991mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=427.741mil|Location2.X=433.991mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-15(11.196mm,77.559mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=414.946mil|Location2.X=421.196mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=414.946mil|Location2.X=421.196mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-16(10.696mm,77.559mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=3015.852mil|Location2.Y=3022.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=3015.852mil|Location2.Y=3022.102mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-17(10.071mm,76.934mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2996.166mil|Location2.Y=3002.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2996.166mil|Location2.Y=3002.416mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-18(10.071mm,76.434mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2976.481mil|Location2.Y=2982.731mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2976.481mil|Location2.Y=2982.731mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-19(10.071mm,75.934mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2897.741mil|Location2.Y=2903.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2897.741mil|Location2.Y=2903.991mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-2(14.821mm,73.934mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2956.796mil|Location2.Y=2963.046mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2956.796mil|Location2.Y=2963.046mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-20(10.071mm,75.434mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2937.111mil|Location2.Y=2943.361mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2937.111mil|Location2.Y=2943.361mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-21(10.071mm,74.934mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2917.426mil|Location2.Y=2923.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2917.426mil|Location2.Y=2923.676mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-22(10.071mm,74.434mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2897.741mil|Location2.Y=2903.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2897.741mil|Location2.Y=2903.991mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-23(10.071mm,73.934mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2884.946mil|Location2.Y=2891.196mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=413.548mil|Location2.X=419.798mil|Location1.Y=2884.946mil|Location2.Y=2891.196mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-24(10.071mm,73.434mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=414.946mil|Location2.X=421.196mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=414.946mil|Location2.X=421.196mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-25(10.696mm,72.809mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=427.741mil|Location2.X=433.991mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=427.741mil|Location2.X=433.991mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-26(11.196mm,72.809mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=447.426mil|Location2.X=453.676mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=447.426mil|Location2.X=453.676mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-27(11.696mm,72.809mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=467.111mil|Location2.X=473.361mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=467.111mil|Location2.X=473.361mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-28(12.196mm,72.809mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=486.796mil|Location2.X=493.046mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=486.796mil|Location2.X=493.046mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-29(12.696mm,72.809mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2917.426mil|Location2.Y=2923.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2917.426mil|Location2.Y=2923.676mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-3(14.821mm,74.434mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=506.481mil|Location2.X=512.731mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=506.481mil|Location2.X=512.731mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-30(13.196mm,72.809mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=526.166mil|Location2.X=532.416mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=526.166mil|Location2.X=532.416mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-31(13.696mm,72.809mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=545.851mil|Location2.X=552.101mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=545.851mil|Location2.X=552.101mil|Location1.Y=2883.548mil|Location2.Y=2889.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-32(14.196mm,72.809mm) on Top Layer And Pad U1-33(12.446mm,75.184mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2937.111mil|Location2.Y=2943.361mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2937.111mil|Location2.Y=2943.361mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-33(12.446mm,75.184mm) on Top Layer And Pad U1-4(14.821mm,74.934mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2956.796mil|Location2.Y=2963.046mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2956.796mil|Location2.Y=2963.046mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-33(12.446mm,75.184mm) on Top Layer And Pad U1-5(14.821mm,75.434mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2976.481mil|Location2.Y=2982.731mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2976.481mil|Location2.Y=2982.731mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-33(12.446mm,75.184mm) on Top Layer And Pad U1-6(14.821mm,75.934mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2996.166mil|Location2.Y=3002.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=2996.166mil|Location2.Y=3002.416mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-33(12.446mm,75.184mm) on Top Layer And Pad U1-7(14.821mm,76.434mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=3015.852mil|Location2.Y=3022.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=560.202mil|Location2.X=566.452mil|Location1.Y=3015.852mil|Location2.Y=3022.102mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-33(12.446mm,75.184mm) on Top Layer And Pad U1-8(14.821mm,76.934mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=545.851mil|Location2.X=552.101mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=545.851mil|Location2.X=552.101mil|Location1.Y=3030.202mil|Location2.Y=3036.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.071mm &lt; 0.127mm) Between Pad U1-33(12.446mm,75.184mm) on Top Layer And Pad U1-9(14.196mm,77.559mm) on Top Layer [Top Solder] Mask Sliver [0.071mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=516.303mil|Location2.X=522.553mil|Location1.Y=2621.269mil|Location2.Y=2627.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=516.303mil|Location2.X=522.553mil|Location1.Y=2621.269mil|Location2.Y=2627.519mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.127mm) Between Pad U2-1(13.518mm,67.137mm) on Top Layer And Pad U2-2(12.868mm,67.137mm) on Top Layer [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=490.713mil|Location2.X=496.963mil|Location1.Y=2621.269mil|Location2.Y=2627.519mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=490.713mil|Location2.X=496.963mil|Location1.Y=2621.269mil|Location2.Y=2627.519mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.127mm) Between Pad U2-2(12.868mm,67.137mm) on Top Layer And Pad U2-3(12.218mm,67.137mm) on Top Layer [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=490.713mil|Location2.X=496.963mil|Location1.Y=2542.922mil|Location2.Y=2549.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=490.713mil|Location2.X=496.963mil|Location1.Y=2542.922mil|Location2.Y=2549.172mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.127mm) Between Pad U2-4(12.218mm,65.147mm) on Top Layer And Pad U2-5(12.868mm,65.147mm) on Top Layer [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=516.303mil|Location2.X=522.553mil|Location1.Y=2542.922mil|Location2.Y=2549.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=516.303mil|Location2.X=522.553mil|Location1.Y=2542.922mil|Location2.Y=2549.172mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.127mm) Between Pad U2-5(12.868mm,65.147mm) on Top Layer And Pad U2-6(13.518mm,65.147mm) on Top Layer [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=186.056mil|Location2.X=192.306mil|Location1.Y=2625.576mil|Location2.Y=2631.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=186.056mil|Location2.X=192.306mil|Location1.Y=2625.576mil|Location2.Y=2631.826mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.127mm) Between Pad U4-1(5.432mm,67.244mm) on Top Layer And Pad U4-2(5.432mm,66.294mm) on Top Layer [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=186.056mil|Location2.X=192.306mil|Location1.Y=2588.174mil|Location2.Y=2594.424mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=186.056mil|Location2.X=192.306mil|Location1.Y=2588.174mil|Location2.Y=2594.424mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.127mm) Between Pad U4-2(5.432mm,66.294mm) on Top Layer And Pad U4-3(5.432mm,65.344mm) on Top Layer [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=294.324mil|Location2.X=300.574mil|Location1.Y=2588.174mil|Location2.Y=2594.424mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=294.324mil|Location2.X=300.574mil|Location1.Y=2588.174mil|Location2.Y=2594.424mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.127mm) Between Pad U4-4(8.182mm,65.344mm) on Top Layer And Pad U4-5(8.182mm,66.294mm) on Top Layer [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=294.324mil|Location2.X=300.574mil|Location1.Y=2625.576mil|Location2.Y=2631.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=294.324mil|Location2.X=300.574mil|Location1.Y=2625.576mil|Location2.Y=2631.826mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.096mm &lt; 0.127mm) Between Pad U4-5(8.182mm,66.294mm) on Top Layer And Pad U4-6(8.182mm,67.244mm) on Top Layer [Top Solder] Mask Sliver [0.096mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDUK3JBC2VCVGPODLBI4B0LDTFWHLCIK0LWVYPI5C52YUPTVJGOWNC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=176.344mil|Location2.X=187.594mil|Location1.Y=3331.631mil|Location2.Y=3342.881mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=176.344mil|Location2.X=187.594mil|Location1.Y=3331.631mil|Location2.Y=3342.881mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.249mm &lt; 0.254mm) Between Arc (1.542mm,85.42mm) on Top Overlay And Pad R13-1(4.242mm,85.42mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.249mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=166.513mil|Location2.X=178.488mil|Location1.Y=3326.07mil|Location2.Y=3337.32mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=166.513mil|Location2.X=178.488mil|Location1.Y=3326.07mil|Location2.Y=3337.32mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.242mm &lt; 0.254mm) Between Arc (10.998mm,75.351mm) on Bottom Overlay And Pad R13-1(4.242mm,85.42mm) on Multi-Layer [Bottom Overlay] to [Bottom Solder] clearance [0.242mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=521.052mil|Location2.X=532.302mil|Location1.Y=2475.202mil|Location2.Y=2486.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=521.052mil|Location2.X=532.302mil|Location1.Y=2475.202mil|Location2.Y=2486.452mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.15mm &lt; 0.254mm) Between Arc (13.378mm,63.188mm) on Top Overlay And Pad D1-1(13.553mm,62.738mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=618.921mil|Location2.X=630.171mil|Location1.Y=2868.189mil|Location2.Y=2879.439mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=618.921mil|Location2.X=630.171mil|Location1.Y=2868.189mil|Location2.Y=2879.439mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.234mm &lt; 0.254mm) Between Arc (15.796mm,72.634mm) on Top Overlay And Pad FL1-4(16.01mm,73.335mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.234mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19.242mil|Location2.X=30.492mil|Location1.Y=3333.21mil|Location2.Y=3344.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19.242mil|Location2.X=30.492mil|Location1.Y=3333.21mil|Location2.Y=3344.46mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.207mm &lt; 0.254mm) Between Arc (3.742mm,85.42mm) on Top Overlay And Pad R13-2(1.042mm,85.42mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.207mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=210.917mil|Location2.X=222.167mil|Location1.Y=2689.487mil|Location2.Y=2700.737mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=210.917mil|Location2.X=222.167mil|Location1.Y=2689.487mil|Location2.Y=2700.737mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.236mm &lt; 0.254mm) Between Arc (5.432mm,68.094mm) on Top Overlay And Pad C7-2(5.842mm,68.842mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=756.167mil|Location2.X=763.833mil|Location1.Y=2948.765mil|Location2.Y=2956.432mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=756.167mil|Location2.X=763.833mil|Location1.Y=2948.765mil|Location2.Y=2956.432mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad C14-2(19.574mm,74.676mm) on Top Layer And Text "FL1" (16.002mm,75.108mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=539.753mil|Location2.X=551.003mil|Location1.Y=2453.548mil|Location2.Y=2464.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=539.753mil|Location2.X=551.003mil|Location1.Y=2453.548mil|Location2.Y=2464.798mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad D1-1(13.553mm,62.738mm) on Top Layer And Track (13.803mm,62.288mm)(15.103mm,62.288mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=539.753mil|Location2.X=551.003mil|Location1.Y=2475.202mil|Location2.Y=2486.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=539.753mil|Location2.X=551.003mil|Location1.Y=2475.202mil|Location2.Y=2486.452mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad D1-1(13.553mm,62.738mm) on Top Layer And Track (13.803mm,63.188mm)(15.103mm,63.188mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=586.997mil|Location2.X=598.247mil|Location1.Y=2453.55mil|Location2.Y=2464.8mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=586.997mil|Location2.X=598.247mil|Location1.Y=2453.55mil|Location2.Y=2464.8mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad D1-2(15.353mm,62.738mm) on Top Layer And Track (13.803mm,62.288mm)(15.103mm,62.288mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=586.997mil|Location2.X=598.247mil|Location1.Y=2475.203mil|Location2.Y=2486.453mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=586.997mil|Location2.X=598.247mil|Location1.Y=2475.203mil|Location2.Y=2486.453mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad D1-2(15.353mm,62.738mm) on Top Layer And Track (13.803mm,63.188mm)(15.103mm,63.188mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=45.367mil|Location2.X=56.617mil|Location1.Y=2957.718mil|Location2.Y=2968.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=45.367mil|Location2.X=56.617mil|Location1.Y=2957.718mil|Location2.Y=2968.968mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.186mm &lt; 0.254mm) Between Pad P2-1(1.27mm,74.676mm) on Multi-Layer And Text "P2" (0.635mm,75.438mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.186mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=59.362mil|Location2.X=70.612mil|Location1.Y=2657.718mil|Location2.Y=2668.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=59.362mil|Location2.X=70.612mil|Location1.Y=2657.718mil|Location2.Y=2668.968mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.186mm &lt; 0.254mm) Between Pad P3-1(1.27mm,67.056mm) on Multi-Layer And Text "P3" (0.66mm,67.818mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.186mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=51.965mil|Location2.X=65.311mil|Location1.Y=2996.048mil|Location2.Y=3007.298mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=51.965mil|Location2.X=65.311mil|Location1.Y=2996.048mil|Location2.Y=3007.298mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.158mm &lt; 0.254mm) Between Pad U3-6(1.63mm,76.453mm) on Top Layer And Text "P2" (0.635mm,75.438mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.158mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=841.954mil|Location2.X=853.204mil|Location1.Y=2743.509mil|Location2.Y=2754.759mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=841.954mil|Location2.X=853.204mil|Location1.Y=2743.509mil|Location2.Y=2754.759mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad Y2-1(20.866mm,70.528mm) on Top Layer And Track (21.666mm,69.428mm)(21.666mm,73.828mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=841.954mil|Location2.X=853.204mil|Location1.Y=2830.123mil|Location2.Y=2841.373mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=841.954mil|Location2.X=853.204mil|Location1.Y=2830.123mil|Location2.Y=2841.373mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad Y2-2(20.866mm,72.728mm) on Top Layer And Track (21.666mm,69.428mm)(21.666mm,73.828mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.796mil|Location2.X=738.046mil|Location1.Y=2885.241mil|Location2.Y=2896.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.796mil|Location2.X=738.046mil|Location1.Y=2885.241mil|Location2.Y=2896.491mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad Y2-3(19.266mm,72.728mm) on Top Layer And Track (18.466mm,69.428mm)(18.466mm,73.828mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.796mil|Location2.X=738.046mil|Location1.Y=2798.627mil|Location2.Y=2809.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\admin\Documents\GitHub\iot-soil-sensor\Hardware\Sensor\design6.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=726.796mil|Location2.X=738.046mil|Location1.Y=2798.627mil|Location2.Y=2809.877mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad Y2-4(19.266mm,70.528mm) on Top Layer And Track (18.466mm,69.428mm)(18.466mm,73.828mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
